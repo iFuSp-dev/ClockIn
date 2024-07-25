@@ -20,6 +20,7 @@ public class PlayerInteractButton implements Listener {
     public void onPlayerInteract(PlayerInteractEvent event) {
         Player player = event.getPlayer();
         Block clickedBlock = event.getClickedBlock();
+        if (clickedBlock == null){return;}
         NBTBlock nbtBlock = new NBTBlock(clickedBlock);
         if (event.getAction() == Action.RIGHT_CLICK_BLOCK ){        //Right click? for buttons
             if (clickedBlock.getType() == Material.POLISHED_BLACKSTONE_BUTTON && nbtBlock.getData().getBoolean("clockIn")) {    //cheing Material and NBT
